@@ -1,11 +1,13 @@
 import axios from "axios";
 
+// Base URL for Axios to use
 const pokeApi = axios.create({
   baseURL: "https://pokeapi.co/api/v2",
 });
 
-export const getPokemonById = (id) => {
-  return pokeApi.get(`/pokemon/${id}`).then(({ data }) => {
-    return data;
+// Get all Pokemon Types
+export const getAllTypes = () => {
+  return pokeApi.get(`/type`).then(({ data }) => {
+    return data.results;
   });
 };
